@@ -1,0 +1,49 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "workbench.colorCustomizations": {
+      "activityBar.activeBackground": "#424368",
+      "activityBar.activeBorder": "#bf407b",
+      "activityBar.background": "#424368",
+      "activityBar.foreground": "#e7e7e7",
+      "activityBar.inactiveForeground": "#e7e7e799",
+      "activityBarBadge.background": "#130c0d",
+      "activityBarBadge.foreground": "#e7e7e7",
+      "sash.hoverBorder": "#424368",
+      "statusBar.background": "#2e2f49",
+      "statusBar.foreground": "#e7e7e7",
+      "statusBarItem.hoverBackground": "#424368",
+      "statusBarItem.remoteBackground": "#2e2f49",
+      "statusBarItem.remoteForeground": "#e7e7e7",
+      "titleBar.activeBackground": "#2e2f49",
+      "titleBar.activeForeground": "#e7e7e7",
+      "titleBar.inactiveBackground": "#2e2f4999",
+      "titleBar.inactiveForeground": "#e7e7e799",
+      "commandCenter.border": "#e7e7e799"
+    },
+    "peacock.color": "#2E2F49",
+    "files.exclude": {
+      "**/.git": true,
+      "**/.svn": true,
+      "**/.hg": true,
+      "**/CVS": true,
+      "**/.DS_Store": true,
+      "**/Thumbs.db": true,
+      "**/node_modules": true,
+      "node_modules": true,
+      "**/yarn.lock": true,
+      "**/package-lock.json": true,
+      "package-lock.json": true,
+      ".next": true
+    },
+    "explorerExclude.backup": null,
+    "cSpell.words": [
+      "hypercerts",
+      "swiper"
+    ],
+  }
+}
