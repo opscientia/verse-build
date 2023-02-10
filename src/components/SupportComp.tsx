@@ -5,6 +5,7 @@ import React from 'react';
 import { Box, Button, Container, Typography } from '@mui/material';
 
 import GradientButton from './GradientButton';
+import { colorGradients } from './Style';
 
 const EXPLORE_CARD_DETAILS = [
   {
@@ -50,7 +51,10 @@ export default function SupportComp() {
             'linear-gradient(110.71deg, rgba(7, 10, 27, 0.15) 0%, rgba(178, 44, 181, 0.15) 100%), rgba(46, 47, 73, 0.25)',
           borderRadius: '32px',
           border: '1px solid rgba(253, 160, 255, 0.15)',
-          py: 6,
+          py: {
+            xs: 3.5,
+            sm: 6,
+          },
           // mt:-20,
           textAlign: 'left',
         }}
@@ -66,7 +70,10 @@ export default function SupportComp() {
               xs: 1,
               sm: 3,
             },
-            gap: 4.6,
+            gap: {
+              xs: 3.4,
+              sm: 4.6,
+            },
           }}
         >
           <Box
@@ -124,19 +131,19 @@ export default function SupportComp() {
                 gap: 2,
                 justifyContent: 'center',
                 mb: 1,
-                mt:4
+                mt: 4,
               }}
             >
               <Button
                 variant='contained'
                 sx={{
-                  background: (theme) => theme.palette.primary.mainGradient,
+                  background: colorGradients.mainGradient,
                   color: '#2d1b40',
                   borderRadius: 2,
                   fontWeight: 600,
                   height: 48,
                   '&:hover': {
-                    background: (theme) => theme.palette.primary.hoverGradient,
+                    background: colorGradients.hoverGradient,
                   },
                 }}
               >

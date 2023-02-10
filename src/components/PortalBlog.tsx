@@ -47,7 +47,7 @@ export default function PortalBlog() {
             'linear-gradient(110.71deg, rgba(7, 10, 27, 0.15) 0%, rgba(178, 44, 181, 0.15) 100%), rgba(46, 47, 73, 0.25)',
           borderRadius: '32px',
           border: '1px solid rgba(253, 160, 255, 0.15)',
-          py: 6,
+          py: {xs:3.5,sm:6},
           textAlign: 'left',
         }}
       >
@@ -62,7 +62,7 @@ export default function PortalBlog() {
               xs: 1.5,
               sm: 3,
             },
-            gap: 6,
+            gap: {xs:'32px', md:6},
           }}
         >
           <Box
@@ -117,8 +117,8 @@ export default function PortalBlog() {
                   width: '100%',
                   gap: 2,
                   mt: {
-                    xs: 6,
-                    md: idx !== 0 && 6,
+                    xs: idx === 0 ? 5 : 3.5,
+                    md: idx !== 0 ? 3 : 4,
                   },
                 }}
               >

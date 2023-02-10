@@ -95,7 +95,7 @@ const typography = {
   h5: {
     fontWeight: 600,
     lineHeight: 1.5,
-    fontSize: pxToRem(18),
+    fontSize: pxToRem(16),
     ...responsiveFontSizes({
       sm: 19,
       md: 20,

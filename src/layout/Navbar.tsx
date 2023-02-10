@@ -5,19 +5,16 @@ import React from 'react';
 
 import { Menu } from '@mui/icons-material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import {
-  Box,
-  Button,
-  Container,
-  IconButton,
-  Stack,
-  Typography
-} from '@mui/material';
+import { Box, Button, Container, IconButton, Stack, Typography } from '@mui/material';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import GradientText from '../components/GradientText';
+import { colorGradients } from '@/components/Style';
 
 export default function Navbar() {
+  const router = useRouter();
+
   return (
     <Box>
       <Container
@@ -89,6 +86,7 @@ export default function Navbar() {
             }}
           >
             <Button
+              onClick={() => router.push('/signIn')}
               sx={{
                 background: 'transparent',
               }}
@@ -101,7 +99,7 @@ export default function Navbar() {
 
             <Button
               sx={{
-                background: (theme) => theme.palette.primary.mainGradient,
+                background: colorGradients.mainGradient,
                 color: (theme) => theme.palette.primary.dark,
                 fontSize: 16,
                 fontWeight: 600,
@@ -109,7 +107,7 @@ export default function Navbar() {
                 height: 32,
                 px: 2,
                 '&:hover': {
-                  background: (theme) => theme.palette.primary.hoverGradient,
+                  background: colorGradients.hoverGradient,
                 },
               }}
             >
@@ -123,7 +121,7 @@ export default function Navbar() {
               display: {
                 xs: 'block',
                 md: 'none',
-              }
+              },
             }}
           >
             <Menu />

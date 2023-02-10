@@ -81,8 +81,8 @@ function Footer() {
             <Box
               sx={{
                 justifySelf: {
- sm: 'end', 
-},
+                  sm: 'end',
+                },
               }}
             >
               <Typography style={styles.h3}>Product </Typography>
@@ -99,8 +99,8 @@ function Footer() {
             <Box
               sx={{
                 justifySelf: {
- sm: 'end', 
-},
+                  sm: 'end',
+                },
               }}
             >
               <Typography style={styles.h3}>Company </Typography>
@@ -117,8 +117,8 @@ function Footer() {
             <Box
               sx={{
                 justifySelf: {
- sm: 'end', 
-},
+                  sm: 'end',
+                },
               }}
             >
               <Typography style={styles.h3}>Overview </Typography>
@@ -170,11 +170,17 @@ function Footer() {
                 xs: 'center',
                 md: 'right',
               },
+              '& span': {
+                mx: {
+                  xs: 1,
+                  md: 2,
+                },
+              },
             }}
-            order={{
-              xs: 1,
-              sm: 2,
-            }}
+            // order={{
+            //   xs: 1,
+            //   sm: 2,
+            // }}
           >
             <SvgIconStyle
               src='/assets/svg/f_social.svg'
@@ -182,7 +188,17 @@ function Footer() {
             />
 
             <SvgIconStyle
+              src='/assets/svg/f_github.svg'
+              sx={styles.icon}
+            />
+
+            <SvgIconStyle
               src='/assets/svg/f_social2.svg'
+              sx={styles.icon}
+            />
+
+            <SvgIconStyle
+              src='/assets/svg/f_twitter.svg'
               sx={styles.icon}
             />
 
@@ -193,16 +209,6 @@ function Footer() {
 
             <SvgIconStyle
               src='/assets/svg/f_social4.svg'
-              sx={styles.icon}
-            />
-
-            <SvgIconStyle
-              src='/assets/svg/f_github.svg'
-              sx={styles.icon}
-            />
-
-            <SvgIconStyle
-              src='/assets/svg/f_twitter.svg'
               sx={styles.icon}
             />
           </Box>
