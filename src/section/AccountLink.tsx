@@ -19,7 +19,7 @@ export default function AccountLink() {
   return (
     <Box
       sx={{
-        background: 'linear-gradient(351.79deg, rgba(54, 16, 61, 0.6) 6.31%, rgba(7, 10, 27, 0) 50%), #070A1B',
+        background: {sm:'linear-gradient(351.79deg, rgba(54, 16, 61, 0.6) 6.31%, rgba(7, 10, 27, 0) 50%), #070A1B'},
         height: '100vh',
         display: 'flex',
         width: '100%',
@@ -29,8 +29,8 @@ export default function AccountLink() {
     >
       <Box
         sx={{
-          background: ' linear-gradient(156.94deg, #24263E 0%, #1E191F 100%)',
-          border: '1px solid rgba(253, 160, 255, 0.1)',
+          background: {sm:' linear-gradient(156.94deg, #24263E 0%, #1E191F 100%)'},
+          border: {sm:'1px solid rgba(253, 160, 255, 0.1)'},
           maxWidth: 382,
           width: '100%',
           p: '24px',
@@ -47,9 +47,9 @@ export default function AccountLink() {
           }}
         >
           <Typography
-            variant='h4'
             sx={{
               mt: 1,
+              fontSize:24,
               fontWeight: 600,
             }}
           >
@@ -68,7 +68,7 @@ export default function AccountLink() {
           >
             <Typography
               sx={{
-                fontSize: '1.3rem',
+                fontSize: 18,
               }}
             >
               Academic Credentials
@@ -99,7 +99,8 @@ export default function AccountLink() {
           >
             <Typography
               sx={{
-                fontSize: '1.3rem',
+                fontSize: 18,
+
               }}
             >
               Developer Credentials
@@ -132,7 +133,8 @@ export default function AccountLink() {
           >
             <Typography
               sx={{
-                fontSize: '1.3rem',
+                fontSize: 18,
+
               }}
             >
               Social and Community

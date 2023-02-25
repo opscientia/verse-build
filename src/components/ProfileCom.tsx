@@ -110,7 +110,6 @@ export default function ProfileCom() {
 
       <Box
         sx={{
-          background: 'linear-gradient(351.79deg, rgba(54, 16, 61, 0.6) 6.31%, rgba(7, 10, 27, 0) 50%), #070A1B',
           height: '100%',
           display: 'flex',
           width: '100%',

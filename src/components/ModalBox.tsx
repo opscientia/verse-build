@@ -47,18 +47,18 @@ export default function ModalBox() {
             my: 2,
             display: 'grid',
             gridTemplateColumns: 'repeat(3, 1fr)',
+
           }}
         >
           {VARIATIONS.map((variation, idx) => {
             return (
               <Box key={variation.id}>
                 <Box
-                  p={2}
                   sx={{
                     display: idx !== 2 ? 'flex' : 'none',
                     flexDirection: 'column',
                     borderTop:idx > 2 ?'1px solid #654B78' : '0px',
-
+                    p:{xs:1, sm:2}
                   }}
                 >
                   <Typography color='#E3BBF1'>{variation.title}</Typography>
