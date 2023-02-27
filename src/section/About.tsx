@@ -12,9 +12,38 @@ import MSelect from '@/components/MSelect';
 import PageGradient from '@/components/PageGradient';
 import TwoButton from '@/components/TwoButton';
 
+
+const select1 = [
+  'Physics',
+  'Astronomy',
+  'Chemistry',
+  'Biology',
+  'Psycology',
+  'Medical',
+  'Materials',
+  'Computer',
+  'Engineering',
+]
+
+const select2 = [
+  'Applied Research',
+  'Modeling & Theory',
+  'Experimentalist',
+  'Grant Writing',
+  'Project Management',
+  'Communications',
+]
+
+const select3 = [
+  'Primary Student',
+  'Undergraduate Student',
+  'Graduate Student',
+  'Post Doctoral',
+  'Faculty',
+]
 export default function About() {
   const router = useRouter();
-  const [selectDropdown, setSelectDropdown] = useState(false);
+  const [selectDropdown, setSelectDropdown] = useState(true);
 
   return (
     <PageGradient>
@@ -39,17 +68,17 @@ export default function About() {
           <>
             <MSelect
               label='What kind of science do you do?'
-              option='Select response'
+              Options={select1}
             />
 
             <MSelect
               label='What is your role?'
-              option='Select response'
+              Options={select2}
             />
 
             <MSelect
               label='What is your current status?'
-              option='Select response'
+              Options={select3}
             />
           </>
         )}
@@ -107,12 +136,12 @@ export default function About() {
       </Box>
 
       {selectDropdown && (
-<TwoButton
-  title1='Skip'
-  title2='Next'
-  onClick2={() => router.push('/accountlink')}
-/>
-)}
+        <TwoButton
+          title1='Skip'
+          title2='Next'
+          onClick2={() => router.push('/accountlink')}
+        />
+      )}
     </PageGradient>
   );
 }

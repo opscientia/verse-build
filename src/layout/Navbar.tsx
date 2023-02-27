@@ -9,8 +9,9 @@ import { Box, Button, Container, IconButton, Stack, Typography } from '@mui/mate
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import GradientText from '../components/GradientText';
 import { colorGradients } from '@/components/Style';
+
+import GradientText from '../components/GradientText';
 
 export default function Navbar() {
   const router = useRouter();
@@ -85,7 +86,7 @@ export default function Navbar() {
               justifyContent: 'center',
             }}
           >
-            <Button
+            {/* <Button
               onClick={() => router.push('/signIn')}
               sx={{
                 background: 'transparent',
@@ -95,9 +96,10 @@ export default function Navbar() {
                 title='Sign In'
                 gradient='linear-gradient(89.94deg, #FEC6C6 -29.79%, #FDA0FF 101.25%)'
               />
-            </Button>
+            </Button> */}
 
             <Button
+              onClick={() => router.push('/signIn')}
               sx={{
                 background: colorGradients.mainGradient,
                 color: (theme) => theme.palette.primary.dark,
@@ -111,7 +113,7 @@ export default function Navbar() {
                 },
               }}
             >
-              Sign Up
+              Sign In
             </Button>
           </Box>
 

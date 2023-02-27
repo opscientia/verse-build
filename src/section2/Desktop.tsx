@@ -4,6 +4,7 @@
 import React from 'react';
 
 import { Box, Button, Divider, Typography } from '@mui/material';
+import { useRouter } from 'next/router';
 
 const NewMessages = [
   {
@@ -28,6 +29,7 @@ const NewMessages = [
   }
 ];
 export default function Desktop() {
+  const router = useRouter();
   return (
     <Box
       sx={{
@@ -87,6 +89,7 @@ export default function Desktop() {
             }}
           >
             <Button
+              onClick={()=>router.push('/signIn')}
               sx={{
                 background: ' linear-gradient(180deg, #8E49E4 0%, rgba(142, 73, 228, 0.5) 100%)',
                 color: 'white',

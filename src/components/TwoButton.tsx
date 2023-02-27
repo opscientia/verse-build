@@ -10,9 +10,10 @@ interface IProps {
   title2: string;
   onClick2 ?: () => void;
   sx?: BoxProps;
+  onClick?: () => void;
 }
 
-export default function TwoButton({ title1, title2, onClick2, sx}: IProps) {
+export default function TwoButton({ title1, title2, onClick2, onClick, sx}: IProps) {
   return (
     <div>
       <Box
@@ -26,6 +27,7 @@ export default function TwoButton({ title1, title2, onClick2, sx}: IProps) {
       >
         <GradientButton
           title={title1}
+          onClick={onClick}
           gradient='linear-gradient(98.39deg, #F8D1D1 0%, #FDA0FF 100%)'
           boxSx={{
             // border:'red'

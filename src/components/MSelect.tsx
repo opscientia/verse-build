@@ -2,12 +2,12 @@ import React from 'react';
 
 import { Box, Typography } from '@mui/material';
 
-interface IProps{
-  label:string;
-  option:string;
+interface IProps {
+  label: string;
+  Options: any;
 }
 
-export default function MSelect({label, option}:IProps) {
+export default function MSelect({ label, Options }: IProps) {
   return (
     <div>
       <Typography
@@ -19,11 +19,12 @@ export default function MSelect({label, option}:IProps) {
         }}
       >
         {label}
-        
+
       </Typography>
 
       <Box
         component='select'
+        defaultValue={'Select response'}
         sx={{
           fontSize: 16,
           color: '#CCCCCC',
@@ -34,19 +35,20 @@ export default function MSelect({label, option}:IProps) {
           borderRadius: '12px',
           my: 1,
           outline: 'none',
-
           '& svg': {
             mr: 1,
           },
+          '& option': {
+            color: '#fff'
+          }
         }}
       >
-        <option value='volvo'>{option}</option>
+        <option disabled label='Select Response' />
+        {Options.map((item: string) => <option value={item} style={{
 
-        <option value='saab'>Saab</option>
+          color: '#fff'
+        }}>{item}</option>)}
 
-        <option value='mercedes'>Mercedes</option>
-
-        <option value='audi'>Audi</option>
       </Box>
     </div>
   );

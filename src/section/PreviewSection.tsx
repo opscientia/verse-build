@@ -17,7 +17,7 @@ export default function PreviewSection() {
       <Box>
         <Box
           sx={{
-            background: {sm:'linear-gradient(351.79deg, rgba(54, 16, 61, 0.6) 6.31%, rgba(7, 10, 27, 0) 50%), #070A1B'},
+            background: { sm: 'linear-gradient(351.79deg, rgba(54, 16, 61, 0.6) 6.31%, rgba(7, 10, 27, 0) 50%), #070A1B' },
             height: '100vh',
             display: 'flex',
             width: '100%',
@@ -27,8 +27,8 @@ export default function PreviewSection() {
         >
           <Box
             sx={{
-              background: {sm:' linear-gradient(156.94deg, #24263E 0%, #1E191F 100%)'},
-              border: {sm:'1px solid rgba(253, 160, 255, 0.1)'},
+              background: { sm: ' linear-gradient(156.94deg, #24263E 0%, #1E191F 100%)' },
+              border: { sm: '1px solid rgba(253, 160, 255, 0.1)' },
               maxWidth: 382,
               width: '100%',
               p: '24px',
@@ -54,7 +54,10 @@ export default function PreviewSection() {
                 Looking Good, Shady!
               </Typography>
             </Box>
-
+            <Box component={"img"} src="/assets/images/Ellipse 31.png" sx={{
+              ml: 8,
+              p: 4,
+            }} />
             <Box
               sx={{
                 textAlign: 'center',
@@ -62,7 +65,6 @@ export default function PreviewSection() {
             >
               <Typography
                 sx={{
-                  mt: 19,
                   fontSize: '20px',
                 }}
               >
@@ -75,7 +77,7 @@ export default function PreviewSection() {
                   display: 'flex',
                   gap: '10px',
                   justifyContent: 'center',
-                  'button':{
+                  'button': {
                     borderRadius: '32px',
                   }
                 }}
@@ -84,11 +86,11 @@ export default function PreviewSection() {
                   variant='contained'
                   sx={{
                     background: 'rgba(253, 160, 255, 0.2)',
-                    border:'2px solid #cb79cd'
+                    border: '2px solid #cb79cd'
                   }}
                 >
                   <GradientText title='Neuroscience' />
-                  
+
                 </Button>
 
                 <Button
@@ -96,7 +98,7 @@ export default function PreviewSection() {
                   sx={{
                     background: 'rgba(172, 220, 174, 0.2)',
                     color: '#ACDCAE',
-                    border:'2px solid #ACDCAE'
+                    border: '2px solid #ACDCAE'
                   }}
                 >
                   DAO Scientist
@@ -161,13 +163,13 @@ export default function PreviewSection() {
             </Box>
 
             <TwoButton
-              title1='Skip'
+              title1='Edit profile'
               title2='Next'
               sx={{
                 mt: 6,
               }}
               onClick2={() => router.push('/browseList')}
-
+              onClick={() => router.push('/selectProfile')}
             />
           </Box>
         </Box>

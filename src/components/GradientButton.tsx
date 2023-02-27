@@ -9,9 +9,10 @@ interface IProps {
   title: string;
   sx?: ButtonProps;
   boxSx?: BoxProps;
+  onClick?: () => void;
 }
 
-export default function GradientButton({ gradient, title, sx, boxSx, }: IProps) {
+export default function GradientButton({ gradient, title, sx, boxSx,onClick }: IProps) {
   return (
     <Box
       sx={{
@@ -20,6 +21,7 @@ export default function GradientButton({ gradient, title, sx, boxSx, }: IProps) 
       }}
     >
       <Button
+      onClick={onClick}
         sx={{
           borderRadius: 2,
           background: '#1e1d32 !important',

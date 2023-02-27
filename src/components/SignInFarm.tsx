@@ -65,7 +65,7 @@ export default function SignInFarm() {
             fullWidth
             variant='contained'
             onClick={()=>{
-              router.push('/profilePage')
+              router.push('/selectProfile')
             }}
             sx={{
               background: 'linear-gradient(98.39deg, #F8D1D1 0%, #FDA0FF 100%)',
