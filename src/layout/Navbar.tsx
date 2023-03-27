@@ -1,20 +1,37 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
 
-import React from 'react';
+import { useState } from 'react';
 
-import { Menu } from '@mui/icons-material';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import { AccountCircle } from '@mui/icons-material';
 import { Box, Button, Container, IconButton, Stack, Typography } from '@mui/material';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useAccount } from 'wagmi';
 
 import { colorGradients } from '@/components/Style';
 
-import GradientText from '../components/GradientText';
-
 export default function Navbar() {
   const router = useRouter();
+  const account = useAccount();
+  // console.log("🚀 ~ file: Navbar.tsx:20 ~ Navbar ~ account:", account)
+  const { address, } = account;
+
+  const [auth, setAuth] = useState(true);
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleChange = (event: any) => {
+    setAuth(event.target.checked);
+  };
+
+  const handleMenu = (event: any) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   return (
     <Box>
@@ -22,6 +39,11 @@ export default function Navbar() {
         maxWidth='lg'
         sx={{
           py: 2,
+          borderBottom: '1px solid hsl(258deg 25% 90% / 33%)',
+          px: {
+            xs: 2,
+            lg: 0,
+          },
         }}
       >
         <Stack
@@ -53,10 +75,12 @@ export default function Navbar() {
               },
               '& a': {
                 fontWeight: 600,
+                textDecoration: 'none',
+                color: '#fff',
               },
             }}
           >
-            <Link href='/'>
+            {/* <Link href='/'>
               <Box
                 sx={{
                   display: 'flex',
@@ -67,7 +91,43 @@ export default function Navbar() {
 
                 <KeyboardArrowDownIcon />
               </Box>
-            </Link>
+            </Link> */}
+            <IconButton
+              size='large'
+              aria-label='account of current user'
+              aria-controls='menu-appbar'
+              aria-haspopup='true'
+              onClick={handleMenu}
+              color='inherit'
+            >
+              <Typography>dApps </Typography>
+            </IconButton>
+
+            <Menu
+              id='menu-appbar'
+              anchorEl={anchorEl}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'center',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'center',
+              }}
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+              sx={{
+                ul: {
+                  background: '#0c1232d6',
+                  color:'#fff'
+                },
+              }}
+            >
+              <MenuItem onClick={handleClose}>Profile</MenuItem>
+
+              <MenuItem onClick={handleClose}>My account</MenuItem>
+            </Menu>
 
             <Link href='/'>Search</Link>
 
@@ -80,7 +140,7 @@ export default function Navbar() {
                 xs: 'none',
                 md: 'grid',
               },
-              gridTemplateColumns: 'repeat(2, 1fr)',
+              // gridTemplateColumns: 'repeat(2, 1fr)',
               gap: 1,
               alignItems: 'center',
               justifyContent: 'center',
@@ -98,36 +158,81 @@ export default function Navbar() {
               />
             </Button> */}
 
+            {/* {account?.address ? (
+              <Button
+                sx={{
+                  background: colorGradients.newBackgroundGradients,
+                  color: (theme) => theme.palette.primary.dark,
+                  fontSize: 16,
+                  fontWeight: 500,
+                  borderRadius: '8px',
+                  height: 32,
+                  px: 1.5,
+                  color: '#fff',
+                  '&:hover': {
+                    background: colorGradients.newBackgroundGradients,
+                  },
+                }}
+                // onClick={() => isDisconnected()}
+                >
+                {account?.address}
+              </Button>
+            ) : (
+              
+            )} */}
             <Button
               onClick={() => router.push('/signIn')}
               sx={{
-                background: colorGradients.mainGradient,
-                color: (theme) => theme.palette.primary.dark,
+                background: colorGradients.newBackgroundGradients,
+                // color: (theme) => theme.palette.primary.dark,
                 fontSize: 16,
-                fontWeight: 600,
-                borderRadius: '10px',
+                fontWeight: 500,
+                borderRadius: '8px',
                 height: 32,
-                px: 2,
+                px: 1.5,
+                color: '#fff',
                 '&:hover': {
-                  background: colorGradients.hoverGradient,
+                  background: colorGradients.newBackgroundGradients,
                 },
               }}
             >
               Sign In
+              {/* {address ? address :'Sign In'}  */}
             </Button>
+
+            {/* <WalletConnectBtn
+              titleConnect='Sign In'
+              // onClick={() => (address ? router.push('/selectProfile') : router.push('/signIn'))}
+              onClick={() => router.push('/signIn')}
+
+              sx={{
+                background: colorGradients.newBackgroundGradients,
+                color: (theme) => theme.palette.primary.dark,
+                fontSize: 16,
+                fontWeight: 500,
+                borderRadius: '8px',
+                height: 32,
+                p: 1,
+                color: '#fff',
+                '&:hover': {
+                  background: colorGradients.newBackgroundGradients,
+                },
+                // p: 0,
+                m: 0,
+              }}
+            /> */}
           </Box>
 
-          <IconButton
+          {/* <IconButton
             sx={{
               color: '#fff',
               display: {
                 xs: 'block',
                 md: 'none',
               },
-            }}
-          >
+            }}>
             <Menu />
-          </IconButton>
+          </IconButton> */}
         </Stack>
       </Container>
     </Box>

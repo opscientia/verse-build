@@ -4,7 +4,10 @@
 import React from 'react';
 
 import { Box, Button, Divider, Typography } from '@mui/material';
+import { ConnectButton } from '@particle-network/connect-react-ui';
 import { useRouter } from 'next/router';
+
+import { useQueryStreamsLiveDetails } from '@/hooks/query/query';
 
 const NewMessages = [
   {
@@ -30,23 +33,28 @@ const NewMessages = [
 ];
 export default function Desktop() {
   const router = useRouter();
+  const { data, } = useQueryStreamsLiveDetails();
+
   return (
     <Box
       sx={{
-        background: 'linear-gradient(351.79deg, rgba(54, 16, 61, 0.6) 6.31%, rgba(7, 10, 27, 0) 50%), #070A1B',
-        height: '100vh',
+        // background: 'linear-gradient(351.79deg, rgba(54, 16, 61, 0.6) 6.31%, rgba(7, 10, 27, 0) 50%), #070A1B',
+        height: '90vh',
         width: '100%',
-
         alignItems: 'center',
+        overflow: 'hidden',
       }}
     >
       <Box
         sx={{
-          display: 'flex',
+          display: {
+            xs: 'block',
+            md: 'flex',
+          },
           alignItems: 'center',
           width: '100%',
           maxWidth: 1440,
-          px: '128px',
+          px: 2,
           margin: 'auto',
           justifyContent: 'space-around',
           position: 'relative',
@@ -73,7 +81,7 @@ export default function Desktop() {
                 mt: 3,
                 color: '#999999',
                 fontSize: '18px',
-                width: '556px',
+                maxWidth: '556px',
               }}
             >
               Browse the multiverse of decentralized societies, link credentials to prove your identity, and apply to
@@ -89,7 +97,7 @@ export default function Desktop() {
             }}
           >
             <Button
-              onClick={()=>router.push('/signIn')}
+              onClick={() => router.push('/signIn')}
               sx={{
                 background: ' linear-gradient(180deg, #8E49E4 0%, rgba(142, 73, 228, 0.5) 100%)',
                 color: 'white',
@@ -102,6 +110,7 @@ export default function Desktop() {
             </Button>
 
             <Button
+            onClick={()=>router.push('/browseList')}
               sx={{
                 background: ' #2A274A',
                 color: 'white',
@@ -120,6 +129,8 @@ export default function Desktop() {
             display: 'flex',
             gap: '19px',
             color: 'white',
+            // justifyContent:'center',
+            mt: 6,
           }}
         >
           <Divider
@@ -151,7 +162,7 @@ export default function Desktop() {
                 {NewMessages.map((item, idx) => {
                   return (
                     <Box
-                      key={item.id}
+                      key={item?.id}
                       sx={{
                         display: 'flex',
                         gap: '10px',

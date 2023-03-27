@@ -58,10 +58,11 @@ export default function ModalBox() {
                     display: idx !== 2 ? 'flex' : 'none',
                     flexDirection: 'column',
                     borderTop:idx > 2 ?'1px solid #654B78' : '0px',
-                    p:{xs:1, sm:2}
+                    p:{xs:1, sm:2},
+                    textAlign: 'left'
                   }}
                 >
-                  <Typography color='#E3BBF1'>{variation.title}</Typography>
+                  <Typography color='#C398F9'>{variation.title}</Typography>
 
                   <Typography variant='h3'>
                     {variation.desc} <Typography component='sub'>{variation.sub}</Typography>
@@ -77,7 +78,7 @@ export default function ModalBox() {
                 >
                   <Box
                     component='img'
-                    src='/assets/images/chart.png'
+                    src='/assets/svg/chart.svg'
                     sx={{
                       width:'100%',
                       height:'100%',
@@ -102,6 +103,7 @@ export default function ModalBox() {
               pl: 3,
               '& ul li ': {
                 fontSize: 14,
+                color:'#9C9C9C'
               },
             }}
           >
@@ -115,14 +117,6 @@ export default function ModalBox() {
            
           </Box>
 
-          <Typography
-            sx={{
-                color: '#E3BBF1',
-                fontSize: 14,
-              }}
-          >
-              See more requirements
-            </Typography>
         </Box>
       </Box>
     </div>

@@ -44,6 +44,7 @@ declare module '@mui/material/styles/createTypography' {
 
 // const FONT_PRIMARY = 'Roboto, sans-serif'; // Google Font
 const FONT_SECONDARY = 'Plus Jakarta Sans, sans-serif'; // Local Font
+const FONT_PRIMARY = 'Inter, sans-serif'
 
 const typography = {
   fontFamily: FONT_SECONDARY,
@@ -146,16 +147,16 @@ const typography = {
     textTransform: 'uppercase',
   },
   button: {
-    fontWeight: 700,
+    fontWeight: 500,
     lineHeight: 24 / 14,
     fontSize: pxToRem(14),
     textTransform: 'capitalize',
     borderRadius: 2,
-    fontFamily: FONT_SECONDARY,
+    fontFamily: FONT_PRIMARY,
     letterSpacing: '0.05em',
   },
   tab: {
-    fontFamily: FONT_SECONDARY,
+    fontFamily: FONT_PRIMARY,
     fontWeight: 500,
     fontSize: pxToRem(16),
   },

@@ -39,17 +39,24 @@
 //   );
 // }
 
+
 import React from 'react';
 
-import Desktop from '@/section2/Desktop';
+import { Box } from '@mui/material';
+
 import Navbar from '@/layout/Navbar';
+// import Desktop from '@/section2/Desktop';
+import dynamic from 'next/dynamic';
+
+const Desktop = dynamic(() => import('@/section2/Desktop'));
+
 
 export default function HomePage2() {
   return (
-    <div>
+    <Box>
       <Navbar />
+
       <Desktop />
-    </div>
+    </Box>
   );
 }
-

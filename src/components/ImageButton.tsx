@@ -7,12 +7,14 @@ import Image from 'next/image';
 interface IProps {
   url: string;
   title: string;
+  onClick?:()=> void
 }
 
-export default function ImageButton({ url, title, }: IProps) {
+export default function ImageButton({ url, title,onClick }: IProps) {
   return (
     <Button
       fullWidth
+      onClick={onClick}
       variant='contained'
       sx={{
         background: '#393B50',

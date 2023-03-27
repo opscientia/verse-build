@@ -2,8 +2,7 @@
 import React from 'react';
 
 import { AccountCircle } from '@mui/icons-material';
-import { Button, InputAdornment, TextField, Typography, BoxProps } from '@mui/material';
-import { Box } from '@mui/system';
+import { Button, InputAdornment, TextField, Box, Typography, BoxProps } from '@mui/material';
 
 import BrowseCards from '@/components/ImgCard';
 import BrowseSocietiesModal from '@/components/modals/BrowseSocieties';
@@ -30,8 +29,19 @@ export default function BrowseSocietiesList() {
         justifyContent: 'center',
         alignItems: 'center',
         height: '100vh',
+        flexDirection: 'column',
+        gap: 3,
       }}
     >
+      <Box
+        component='img'
+        src='/assets/svg/progressBar5.svg'
+        sx={{
+          mt: 0,
+          
+        }}
+      />
+
       <Box
         sx={{
           background: ' linear-gradient(156.94deg, #24263E 0%, #1E191F 100%)',
@@ -47,82 +57,104 @@ export default function BrowseSocietiesList() {
       >
         <Box
           sx={{
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            p: 3,
-            pb: 0,
-            display: 'grid',
-            gridTemplateColumns: {
-              xs: 'repeat(1, 1fr)',
-              sm: 'repeat(2, 1fr)',
-            },
-            '& p': {
-              fontSize: '24px',
-            },
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            height: 154,
+            zIndex: 2,
+            background:
+              'linear-gradient(180deg, #28243E 41.15%, rgba(38, 35, 60, 0.2) 72.09%, rgba(38, 35, 60, 0) 100%);',
+            // mixBlendMode: 'darken',
           }}
         >
-          <Box>
-            <Typography>Browse Societies</Typography>
-          </Box>
-
-          <TextField
+          <Box
             sx={{
-              '& input': {
-                color: '#fff !important',
-                width: '100%',
-              },
-              '& label': {
-                color: '#fff',
-                alignItems: 'center',
-                display: 'flex',
-              },
-              '& label.Mui-focused': {
-                color: 'white',
-                borderBottomColor: '#fff',
-              },
-              '& .MuiInput-underline:after': {
-                borderBottomColor: '#fff',
-              },
-              '& .MuiOutlinedInput-root': {
-                borderRadius: '50px',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              p: 3,
+              pb: 0,
+              display: 'grid',
 
-                '& fieldset': {
-                  borderColor: '#747272',
-                },
-                '&:hover fieldset': {
-                  borderColor: '#747272',
-                },
-                '&.Mui-focused fieldset': {
-                  borderColor: '#747272',
-                },
+              gridTemplateColumns: {
+                xs: 'repeat(1, 1fr)',
+                sm: 'repeat(2, 1fr)',
               },
-              mt: {
-                xs: 2,
-                sm: 0,
+              '& p': {
+                fontSize: '24px',
               },
             }}
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position='start'>
-                  <Box
-                    component='img'
-                    src='/assets/svg/graySearch.svg'
-                  />
-                </InputAdornment>
-              ),
-              endAdornment: (
-                <InputAdornment position='end'>
-                  <Box
-                    component='img'
-                    src='/assets/svg/menuLine.svg'
-                  />
-                </InputAdornment>
-              ),
-            }}
-            placeholder='Search'
-            fullWidth
-            color='success'
-          />
+          >
+            <Box>
+              <Typography
+                sx={{
+                  color: '#fff',
+                }}
+              >
+                Join Societies
+              </Typography>
+            </Box>
+
+            <TextField
+              sx={{
+                '& input': {
+                  color: '#fff !important',
+                  width: '100%',
+                  background: 'rgba(7, 10, 27, 0.15)',
+                },
+                '& label': {
+                  color: '#fff',
+                  alignItems: 'center',
+                  display: 'flex',
+                },
+                '& label.Mui-focused': {
+                  color: 'white',
+                  borderBottomColor: '#fff',
+                },
+                '& .MuiInput-underline:after': {
+                  borderBottomColor: '#fff',
+                },
+                '& .MuiOutlinedInput-root': {
+                  borderRadius: '50px',
+
+                  '& fieldset': {
+                    borderColor: '#393B50',
+                  },
+                  '&:hover fieldset': {
+                    borderColor: '#393B50',
+                  },
+                  '&.Mui-focused fieldset': {
+                    borderColor: '#393B50',
+                  },
+                },
+                mt: {
+                  xs: 2,
+                  sm: 0,
+                },
+              }}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position='start'>
+                    <Box
+                      component='img'
+                      src='/assets/svg/graySearch.svg'
+                    />
+                  </InputAdornment>
+                ),
+                endAdornment: (
+                  <InputAdornment position='end'>
+                    <Box
+                      component='img'
+                      src='/assets/svg/menuLine.svg'
+                    />
+                  </InputAdornment>
+                ),
+              }}
+              placeholder='Search'
+              fullWidth
+              color='success'
+            />
+          </Box>
         </Box>
 
         <Box
@@ -133,10 +165,13 @@ export default function BrowseSocietiesList() {
               sm: 'repeat(3,1fr)',
               md: 'repeat(4,1fr)',
             },
-            mt: 4.6,
+            mt: {
+ xs: 20,
+sm: 12, 
+},
             width: '100%',
             gap: '20px',
-            maxHeight: 560,
+            maxHeight: 660,
             px: 3,
             position: 'relative',
             overflow: 'auto',
@@ -157,14 +192,14 @@ export default function BrowseSocietiesList() {
             return (
               <Box
                 key={idx}
-                onClick={() => idx === 0 && handleOpen}
+                onClick={() => idx === 0 && handleOpen()}
                 // @ts-ignore
-                sx ={{
+                sx={{
                   cursor: idx === 0 && 'pointer',
                 }}
               >
                 <BrowseCards
-                  imgUrl={item?.imgSrc}
+                  imgUrl={item?.imgSrc || '/assets/svg/question.svg'}
                   title={item?.title}
                 />
               </Box>
@@ -175,7 +210,6 @@ export default function BrowseSocietiesList() {
         <Box
           sx={{
             position: 'relative',
-            mt: 11,
           }}
         >
           <Box
@@ -189,11 +223,15 @@ export default function BrowseSocietiesList() {
               bottom: 0,
               left: 0,
               right: 0,
+              height: 152,
               borderRadius: ' 0 0 12px 12px',
-              background: 'linear-gradient(180deg, #393B50 -30.66%, rgb(13 13 19 / 63%) 55.63%, rgb(24 25 35) 70.48%)',
+              background:
+                'linear-gradient(180deg, #121222 20.1%, rgba(18, 18, 34, 0.2) 66.81%, rgba(18, 18, 34, 0) 100%)',
+              mixBlendMode: 'darken',
+              transform: 'rotate(-180deg)',
             }}
           >
-            <Button
+            {/* <Button
               sx={{
                 backgroundColor: 'transparent',
                 border: '1px solid pink',
@@ -203,9 +241,9 @@ export default function BrowseSocietiesList() {
               }}
             >
               Load More
-            </Button>
+            </Button> */}
 
-            <Box
+            {/* <Box
               sx={{
                 display: 'flex',
                 background: 'linear-gradient(90.51deg, #373A83 0.37%, #3E4D81 50.01%, #975598 99.65%)',
@@ -233,7 +271,7 @@ export default function BrowseSocietiesList() {
               >
                 Apply to List your Society
               </Button>
-            </Box>
+            </Box> */}
           </Box>
 
           <BrowseSocietiesModal

@@ -23,9 +23,8 @@ export default function BrowseSocietiesModal({ handleClose, open, }: IProps) {
       <Box>
         <Box
           sx={{
-            // background: 'linear-gradient(351.79deg, rgba(54, 16, 61, 0.6) 6.31%, rgba(7, 10, 27, 0) 50%), #070A1B',
             height: '100vh',
-            background:'#eee1e124',
+            // background: '#eee1e124',
             display: 'flex',
             width: '100%',
             justifyContent: 'center',
@@ -38,7 +37,8 @@ export default function BrowseSocietiesModal({ handleClose, open, }: IProps) {
               sx={{
                 textAlign: 'center',
                 overflow: 'hidden',
-                backgroundColor: '#24263E',
+                // backgroundColor: '#24263E',
+                background:'linear-gradient(156.94deg, #28243E 0%, #121222 100%)',
                 borderRadius: '15px',
                 px: {
                   xs: 1.5,
@@ -88,47 +88,26 @@ export default function BrowseSocietiesModal({ handleClose, open, }: IProps) {
               </Box>
 
               <Box>
-                <Box>
-                  <Typography
-                    color='#FDA0FF'
-                    sx={{
-                      display: 'flex',
-                      gap: '10px',
-                      alignItems: 'center',
-                      mt: 3,
-                    }}
-                  >
-                    <u>Society page</u>
-
-                    <Box
-                      component='img'
-                      src='/assets/images/arrowUp.png'
-                      alt='img'
-                      sx={{
-                        width: '8px',
-                        height: '8px',
-                      }}
-                    />
-                  </Typography>
-                </Box>
-
                 {/* <PageGrid /> */}
                 <ModalBox />
 
                 <Button
                   onClick={() => {
                     // router.push('/userProfile');
-                    handleClose()
+                    handleClose();
                   }}
+                  variant='outlined'
                   sx={{
-                    background: ' linear-gradient(98.39deg, #F8D1D1 0%, #FDA0FF 100%)',
-                    maxWidth: 162,
+                    mt:15,
+                    backgroundColor: '#782DC7',
+                    border: '1px solid rgba(142, 73, 228, 0.4)',
+                    textTransform: 'none',
+                    color: 'white',
                     width: '100%',
-                    color: '#1B1D32',
-                    p: 2,
-                    mt: 6,
-                    borderRadius: 2,
-                    fontSize: 16,
+                    py: 1.4,
+                    '&:hover': {
+                      backgroundColor: '#782DC7',
+                    },
                   }}
                 >
                   Apply

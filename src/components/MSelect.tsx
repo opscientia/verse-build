@@ -16,15 +16,13 @@ export default function MSelect({ label, Options }: IProps) {
           color: '#FDF5FF',
           mt: 2,
           textAlign: 'left',
-        }}
-      >
+        }}>
         {label}
-
       </Typography>
 
       <Box
         component='select'
-        defaultValue={'Select response'}
+        defaultValue='Select response'
         sx={{
           fontSize: 16,
           color: '#CCCCCC',
@@ -39,16 +37,21 @@ export default function MSelect({ label, Options }: IProps) {
             mr: 1,
           },
           '& option': {
-            color: '#fff'
-          }
-        }}
-      >
+            color: '#fff',
+          },
+        }}>
         <option disabled label='Select Response' />
-        {Options.map((item: string) => <option value={item} style={{
 
-          color: '#fff'
-        }}>{item}</option>)}
-
+        {Options.map((item: string) => (
+          <option
+            key={item}
+            value={item}
+            style={{
+              color: '#fff',
+            }}>
+            {item}
+          </option>
+        ))}
       </Box>
     </div>
   );

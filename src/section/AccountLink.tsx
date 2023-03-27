@@ -9,6 +9,8 @@ import { Box, Typography } from '@mui/material';
 import { useRouter } from 'next/router';
 
 import MSelect from '@/components/MSelect';
+import NewTwoButtons from '@/components/NewTwoButtons';
+import PageGradient from '@/components/PageGradient';
 import ShareCard from '@/components/ShareCard';
 import TwoButton from '@/components/TwoButton';
 
@@ -17,29 +19,10 @@ export default function AccountLink() {
   const [selectDropdown, setSelectDropdown] = useState(false);
 
   return (
-    <Box
-      sx={{
-        background: {sm:'linear-gradient(351.79deg, rgba(54, 16, 61, 0.6) 6.31%, rgba(7, 10, 27, 0) 50%), #070A1B'},
-        height: '100vh',
-        display: 'flex',
-        width: '100%',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
+    <PageGradient
+     
     >
-      <Box
-        sx={{
-          background: {sm:' linear-gradient(156.94deg, #24263E 0%, #1E191F 100%)'},
-          border: {sm:'1px solid rgba(253, 160, 255, 0.1)'},
-          maxWidth: 382,
-          width: '100%',
-          p: '24px',
-          borderRadius: '12px',
-          maxHeight: '85vh',
-          overflowY: 'auto',
-          color: '#fff',
-        }}
-      >
+      <Box>
         <Box
           sx={{
             textAlign: 'center',
@@ -49,7 +32,7 @@ export default function AccountLink() {
           <Typography
             sx={{
               mt: 1,
-              fontSize:24,
+              fontSize: 24,
               fontWeight: 600,
             }}
           >
@@ -61,7 +44,8 @@ export default function AccountLink() {
           <Box
             sx={{
               display: 'flex',
-              justifyContent: 'space-between',
+              // justifyContent: 'space-between',
+              gap: 1,
               alignItems: 'center',
               mt: 4,
             }}
@@ -78,6 +62,9 @@ export default function AccountLink() {
               component='img'
               src='/assets/images/question.png'
               alt=''
+              sx={{
+                mt: 1,
+              }}
             />
           </Box>
         </Box>
@@ -93,14 +80,14 @@ export default function AccountLink() {
             sx={{
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'space-between',
+              // justifyContent: 'space-between',
+              gap: 1,
               mt: 2,
             }}
           >
             <Typography
               sx={{
                 fontSize: 18,
-
               }}
             >
               Developer Credentials
@@ -110,6 +97,9 @@ export default function AccountLink() {
               component='img'
               src='/assets/images/question.png'
               alt=''
+              sx={{
+                mt: 1,
+              }}
             />
           </Box>
 
@@ -127,14 +117,14 @@ export default function AccountLink() {
             sx={{
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'space-between',
+              // justifyContent: 'space-between',
+              gap: 1,
               mt: 2,
             }}
           >
             <Typography
               sx={{
                 fontSize: 18,
-
               }}
             >
               Social and Community
@@ -144,6 +134,9 @@ export default function AccountLink() {
               component='img'
               src='/assets/images/question.png'
               alt=''
+              sx={{
+                mt: 1,
+              }}
             />
           </Box>
 
@@ -159,16 +152,23 @@ export default function AccountLink() {
             decs='Link your account'
           />
 
-          <TwoButton
+          {/* <TwoButton
             title1='Skip'
             title2='Next'
             sx={{
               mt:10,
             }}
             onClick2={() => router.push('/preview')}
-          />
+          /> */}
         </Box>
       </Box>
-    </Box>
+
+      <NewTwoButtons
+        title1='Back'
+        title2='Next'
+        onClick1={() => router.push('/about')}
+        onClick2={() => router.push('/preview')}
+      />
+    </PageGradient>
   );
 }

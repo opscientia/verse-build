@@ -9,9 +9,9 @@ import { Box, Typography } from '@mui/material';
 import { useRouter } from 'next/router';
 
 import MSelect from '@/components/MSelect';
+import NewTwoButtons from '@/components/NewTwoButtons';
 import PageGradient from '@/components/PageGradient';
 import TwoButton from '@/components/TwoButton';
-
 
 const select1 = [
   'Physics',
@@ -23,7 +23,7 @@ const select1 = [
   'Materials',
   'Computer',
   'Engineering',
-]
+];
 
 const select2 = [
   'Applied Research',
@@ -32,15 +32,9 @@ const select2 = [
   'Grant Writing',
   'Project Management',
   'Communications',
-]
+];
 
-const select3 = [
-  'Primary Student',
-  'Undergraduate Student',
-  'Graduate Student',
-  'Post Doctoral',
-  'Faculty',
-]
+const select3 = ['Primary Student', 'Undergraduate Student', 'Graduate Student', 'Post Doctoral', 'Faculty'];
 export default function About() {
   const router = useRouter();
   const [selectDropdown, setSelectDropdown] = useState(true);
@@ -51,35 +45,29 @@ export default function About() {
         sx={{
           textAlign: 'center',
           overflow: 'hidden',
-        }}
-      >
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'start',
+          alignItems: 'space-between',
+          height: 600,
+        }}>
         <Typography
           // variant='h4'
           sx={{
             mt: 1,
             fontSize: 24,
             fontWeight: 600,
-          }}
-        >
+          }}>
           About
         </Typography>
 
         {selectDropdown && (
           <>
-            <MSelect
-              label='What kind of science do you do?'
-              Options={select1}
-            />
+            <MSelect label='What kind of science do you do?' Options={select1} />
 
-            <MSelect
-              label='What is your role?'
-              Options={select2}
-            />
+            <MSelect label='What is your role?' Options={select2} />
 
-            <MSelect
-              label='What is your current status?'
-              Options={select3}
-            />
+            <MSelect label='What is your current status?' Options={select3} />
           </>
         )}
 
@@ -89,8 +77,7 @@ export default function About() {
             color: '#FDF5FF',
             mt: 2,
             textAlign: 'left',
-          }}
-        >
+          }}>
           {selectDropdown ? 'About you' : 'Please enter a username'}
         </Typography>
 
@@ -121,27 +108,16 @@ export default function About() {
                 fontSize: 12,
                 color: '#957C9D',
                 mt: 1,
-              }}
-            >
+              }}>
               You can always change your <br /> username later.
             </Typography>
 
-            <TwoButton
-              title1='Skip'
-              title2='Next'
-              onClick2={() => setSelectDropdown(true)}
-            />
+            <TwoButton title1='Skip' title2='Next' onClick2={() => setSelectDropdown(true)} />
           </>
         )}
       </Box>
 
-      {selectDropdown && (
-        <TwoButton
-          title1='Skip'
-          title2='Next'
-          onClick2={() => router.push('/accountlink')}
-        />
-      )}
+      {selectDropdown && <NewTwoButtons title1='Skip' title2='Next' onClick2={() => router.push('/accountlink')} onClick1={() => router.push('/uploadPhoto')} />}
     </PageGradient>
   );
 }
