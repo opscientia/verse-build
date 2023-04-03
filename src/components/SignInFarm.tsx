@@ -3,6 +3,7 @@ import { Box, Button, Divider, Typography } from '@mui/material';
 import { useRouter } from 'next/router';
 
 import { useMutationLinkToGithub, useMutationLinkToGoogle, useMutationLinkToOrcid } from '@/hooks/query/mutation';
+import { particleEthersSigner } from '@/utils/particleInit';
 
 import ImageButton from './ImageButton';
 import PageGradient from './PageGradient';
@@ -29,7 +30,20 @@ export default function SignInFarm() {
           src='/assets/images/verseLogo.png'
         />
 
-        {/* <ConnectButton /> */}
+<Button 
+  onClick={() => {particleEthersSigner.connect();}}
+>
+          <Typography 
+            sx={{
+              fontSize: 12,
+              color: '#957C9D',
+              mt: 4,
+            }}
+          >
+            Connect Wallet
+          </Typography>
+
+</Button>
 
         <Typography
           variant='h4'
