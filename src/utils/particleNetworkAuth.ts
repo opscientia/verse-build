@@ -3,9 +3,9 @@ import { ParticleNetwork, WalletEntryPosition } from '@particle-network/auth';
 import { ParticleProvider } from '@particle-network/provider';
 
  export const pn = new ParticleNetwork({
-  projectId: '7bfbaa10-0242-454a-8e0f-787e53fcee26',
-  clientKey: 'cli4JLsB0wYShGdcqyQwKPgFcHSgaqxRK3PwLXKr',
-  appId: '9255d061-5e64-49c5-b19d-464ff72823b6',
+  projectId: process.env.PARTICLE_APP_PROJECT_ID,
+  clientKey: process.env.PARTICLE_APP_CLIENT_KEY,
+  appId: process.env.PARTICLE_APP_APP_ID,
   chainName: 'Ethereum', //optional: current chain name, default Ethereum.
   chainId: 1, //optional: current chain id, default 1.
 
