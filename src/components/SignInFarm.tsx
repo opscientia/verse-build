@@ -34,30 +34,6 @@ export default function SignInFarm() {
           src='/assets/images/verseLogo.png'
         />
 
-        <Button
-          onClick={() => {
-            pn.auth.login({
-              // when set social login auth type, will open thirdparty auth page directly.
-              preferredAuthType: 'google',
-              // when set email/phone account and preferredAuthType is email or phone,
-              // Particle Auth will enter directly input verification code page.
-              // when set JWT value and preferredAuthType is jwt, Particle Auth will auto login.
-              loginFormMode: true, // login form mode will hide others ui except login form. only support supportAuthTypes equals email or phone.
-              socialLoginPrompt: 'select_account', //social login prompt.  none | consent | select_account
-            });
-          }}
-        >
-          <Typography
-            sx={{
-              fontSize: 12,
-              color: '#957C9D',
-              mt: 4,
-            }}
-          >
-            Connect Wallet with PN
-          </Typography>
-        </Button>
-
         <Typography
           variant='h4'
           sx={{
@@ -117,9 +93,17 @@ export default function SignInFarm() {
             title='Continue with Google'
             onClick={() => {
               router.push('/selectProfile');
-              signInWithGoogle();
+
+                pn.auth.login({
+                  preferredAuthType: 'google',
+            
+                }).then((res) => {
+                  console.log('res', res);
+                }).catch((err) => {
+                  console.log('err', err);
+                });
+              
             }}
-            // onClick={signInWithGoogle}
           />
 
           <ImageButton
