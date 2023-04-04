@@ -5,7 +5,7 @@ import { ParticleProvider } from '@particle-network/provider';
  export const pn = new ParticleNetwork({
   projectId: '7bfbaa10-0242-454a-8e0f-787e53fcee26',
   clientKey: 'cli4JLsB0wYShGdcqyQwKPgFcHSgaqxRK3PwLXKr',
-  appId: 'sPunTj2QVTYTUc2lBJxsRJkZKXUSxZNveJfC6pua',
+  appId: '9255d061-5e64-49c5-b19d-464ff72823b6',
   chainName: 'Ethereum', //optional: current chain name, default Ethereum.
   chainId: 1, //optional: current chain id, default 1.
 
