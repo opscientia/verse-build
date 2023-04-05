@@ -1,18 +1,25 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { ParticleNetwork } from '@particle-network/auth';
 
+let pid = '';
+let ckey = '';
+let aid = '';
+
 if (
-  process.env.PARTICLE_APP_PROJECT_ID === undefined &&
-  process.env.PARTICLE_APP_CLIENT_KEY === undefined &&
-  process.env.PARTICLE_APP_APP_ID === undefined
+  process.env.PARTICLE_APP_PROJECT_ID != undefined &&
+  process.env.PARTICLE_APP_CLIENT_KEY != undefined &&
+  process.env.PARTICLE_APP_APP_ID != undefined
 ) {
+  pid = process.env.PARTICLE_APP_PROJECT_ID;
+  ckey = process.env.PARTICLE_APP_CLIENT_KEY;
+  aid = process.env.PARTICLE_APP_APP_ID;  
+}else {
   throw new Error('Please set the environment variables, PARTICLE_APP_PROJECT_ID, PARTICLE_APP_CLIENT_KEY, PARTICLE_APP_APP_ID');
 }
 
 export const pn = new ParticleNetwork({
-  projectId: process.env.PARTICLE_APP_PROJECT_ID!,
-  clientKey: process.env.PARTICLE_APP_CLIENT_KEY!,
-  appId: process.env.PARTICLE_APP_APP_ID!,
+  projectId: pid,
+  clientKey: ckey,
+  appId: aid,
   chainName: 'Ethereum', //optional: current chain name, default Ethereum.
   chainId: 1, //optional: current chain id, default 1.
 });

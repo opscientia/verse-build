@@ -92,17 +92,22 @@ export default function SignInFarm() {
             url='/assets/svg/googleIcon.svg'
             title='Continue with Google'
             onClick={() => {
-              router.push('/selectProfile');
+              try {
+                router.push('/selectProfile');
 
-                pn.auth.login({
-                  preferredAuthType: 'google',
-            
-                }).then((res) => {
-                  console.log('res', res);
-                }).catch((err) => {
-                  console.log('err', err);
-                });
-              
+                pn.auth
+                  .login({
+                    preferredAuthType: 'google',
+                  })
+                  .then((res) => {
+                    console.log('res', res);
+                  })
+                  .catch((err) => {
+                    console.log('err', err);
+                  });
+              } catch (error) {
+                console.error(error);
+              }
             }}
           />
 
