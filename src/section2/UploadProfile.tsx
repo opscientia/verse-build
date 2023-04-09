@@ -72,7 +72,7 @@ export default function UploadProfile() {
               Upload your profile image or use an avatar
             </Typography>
 
-            <Box
+            {/* <Box
               component='div'
               sx={{
                 backgroundColor: '#393B50',
@@ -95,7 +95,7 @@ export default function UploadProfile() {
               />
 
               <Typography>Use avatar</Typography>
-            </Box>
+            </Box> */}
           </Box>
         </Box>
 
@@ -147,6 +147,7 @@ export default function UploadProfile() {
       <NewTwoButtons
         title1='Back'
         title2='Next'
+        onClick1={() => router.push('/selectProfile')}
         onClick2={() => router.push('/about')}
       />
     </PageGradient>

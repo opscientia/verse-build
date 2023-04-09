@@ -111,7 +111,7 @@ export default function SignInFarm() {
             }}
           />
 
-          <ImageButton
+          {/* <ImageButton
             url='/assets/svg/orcid.svg'
             title='Continue with ORCiD'
             onClick={() => {
@@ -129,7 +129,7 @@ export default function SignInFarm() {
               signInWithGithub();
             }}
             // onClick={signInWithGithub}
-          />
+          /> */}
 
           <Typography
             sx={{

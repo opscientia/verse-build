@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { useState } from 'react';
 
-import { Box, Typography } from '@mui/material';
+import { Box, Tooltip, Typography } from '@mui/material';
 
 // import ImageButton from './ImageButton';
 
@@ -19,9 +19,7 @@ export default function AccountLink() {
   const [selectDropdown, setSelectDropdown] = useState(false);
 
   return (
-    <PageGradient
-     
-    >
+    <PageGradient>
       <Box>
         <Box
           sx={{
@@ -58,14 +56,16 @@ export default function AccountLink() {
               Academic Credentials
             </Typography>
 
-            <Box
-              component='img'
-              src='/assets/images/question.png'
-              alt=''
-              sx={{
-                mt: 1,
-              }}
-            />
+            <Tooltip title='Connect to Academic Credentials'  placement="top" arrow>
+              <Box
+                component='img'
+                src='/assets/images/question.png'
+                alt=''
+                sx={{
+                  mt: 1,
+                }}
+              />
+            </Tooltip>
           </Box>
         </Box>
 
@@ -93,6 +93,7 @@ export default function AccountLink() {
               Developer Credentials
             </Typography>
 
+            <Tooltip title='Connect to Developer Credentials'  placement="top" arrow>
             <Box
               component='img'
               src='/assets/images/question.png'
@@ -101,6 +102,7 @@ export default function AccountLink() {
                 mt: 1,
               }}
             />
+            </Tooltip>
           </Box>
 
           <Box>
@@ -130,6 +132,7 @@ export default function AccountLink() {
               Social and Community
             </Typography>
 
+            <Tooltip title='Connect to Social and Community' placement="top" arrow>
             <Box
               component='img'
               src='/assets/images/question.png'
@@ -138,6 +141,7 @@ export default function AccountLink() {
                 mt: 1,
               }}
             />
+            </Tooltip>
           </Box>
 
           <ShareCard
