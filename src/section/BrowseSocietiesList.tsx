@@ -1,4 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-nocheck
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React from 'react';
 
 import { AccountCircle } from '@mui/icons-material';
@@ -28,7 +30,7 @@ const CARDS_LIST = [
 
 export default function BrowseSocietiesList() {
   const [open, setOpen] = React.useState(false);
-  const dispatch =  useDispatch()
+  const dispatch = useDispatch()
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 

@@ -105,7 +105,7 @@ export default function UploadFile() {
 
   return (
     <Box>
-      <button onClick={handleSubmit}>click to test</button>
+      {/* <button onClick={handleSubmit}>click to test</button> */}
 
       <div
         {...getRootProps({

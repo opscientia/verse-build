@@ -26,7 +26,7 @@ export default function selectProfile() {
   const activeTab = useSelector((state: any) => state.profileTabs.currentTab);
   const [profileType, setProfileType] = useState('Public');
   const [userName, setUserName] = useState<string>('');
-  const [userInfo, setUserInfo] = useState<UserInfoDetails>({});
+  const [userInfo, setUserInfo] = useState<UserInfoDetails>();
 
   const profileFile = useSelector((state: any) => state.profileTabs.profileData);
 
@@ -40,10 +40,10 @@ export default function selectProfile() {
   //   importAccount: '',
   //   file: profileFile,
   // };
-  const scienceDo = userInfo?.scienceDo;
-  const yourRole = userInfo?.yourRole;
-  const currentStatus = userInfo?.currentStatus;
-  const aboutYou = userInfo?.aboutYou;
+  const scienceDo = userInfo?.scienceDo ?? '';
+  const yourRole = userInfo?.yourRole ?? '';
+  const currentStatus = userInfo?.currentStatus ?? '';
+  const aboutYou = userInfo?.aboutYou ?? '';
 
   const handleSubmit = async () => {
 
@@ -79,15 +79,14 @@ export default function selectProfile() {
     selectProfile: <ChoosePersona
       setProfileType={setProfileType}
       profileType={profileType}
-                   />,
+    />,
     uploadPhoto: <UploadProfile
       setUserName={setUserName}
       userName={userName}
-                 />,
+    />,
     about: <About
       setUserInfo={setUserInfo}
-      userInfo={userInfo}
-           />,
+    />,
     accountLink: <AccountLink />,
     preview: <PreviewSection handleSubmit={handleSubmit} />,
     browseList: <BrowseSocietiesList />,
