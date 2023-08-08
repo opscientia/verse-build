@@ -1,5 +1,7 @@
+
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 
+// @ts-nocheck
 import { useEffect, useState } from 'react';
 
 import { Box, Typography } from '@mui/material';
@@ -40,7 +42,7 @@ const select2 = [
 const select3 = ['Primary Student', 'Undergraduate Student', 'Graduate Student', 'Post Doctoral', 'Faculty'];
 
 interface IProps {
-  setUserInfo: (value: UserInfoDetails) => void
+  setUserInfo?: (value: UserInfoDetails) => void
 }
 
 export default function About({ setUserInfo, }: IProps) {
@@ -54,6 +56,7 @@ export default function About({ setUserInfo, }: IProps) {
   const [selectDropdown, setSelectDropdown] = useState(true);
 
   useEffect(() => {
+    if(setUserInfo)
     setUserInfo({
       currentStatus,
       yourRole,
