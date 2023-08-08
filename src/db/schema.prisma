@@ -1,0 +1,60 @@
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Profile {
+  id            Int          @id @default(autoincrement())
+  private       Boolean
+  username      String
+  profilePic    String
+  kindOfScience String
+  roleOfScience String
+  status        String
+  about         String
+  DID           String
+  hypercertID   String
+  memberships   Membership[]
+  accounts      Account[]
+}
+
+model Membership {
+  id         Int         @id @default(autoincrement())
+  profileId  Int
+  profile    Profile     @relation(fields: [profileId], references: [id])
+  dateJoined DateTime
+  role       String
+  hypercerts Hypercert[]
+}
+
+model Hypercert {
+  id               Int        @id @default(autoincrement())
+  membershipId     Int
+  membership       Membership @relation(fields: [membershipId], references: [id])
+  title            String
+  description      String
+  image            String
+  URL              String
+  workScope        Json
+  impactScope      Json
+  workTimeframe    Json
+  impactTimeframe  Json
+  contributors     Json
+  rights           Json
+  properties       Json
+  hiddenProperties Json
+}
+
+model Account {
+  id            Int     @id @default(autoincrement())
+  profileId     Int
+  profile       Profile @relation(fields: [profileId], references: [id])
+  linked        Boolean
+  onChainRecord Json
+  otherFields   Json
+}

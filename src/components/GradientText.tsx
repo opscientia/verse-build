@@ -4,11 +4,11 @@ import { Typography, TypographyProps } from '@mui/material';
 
 interface IProps {
   title: string;
-  xs?: TypographyProps;
+  sx?: TypographyProps;
   gradient?: string;
 }
 
-export default function GradientText({ title, xs, gradient, }: IProps) {
+export default function GradientText({ title, sx, gradient, }: IProps) {
   return (
     <Typography
       sx={{
@@ -26,7 +26,7 @@ export default function GradientText({ title, xs, gradient, }: IProps) {
           textFillColor: 'transparent',
 
         },
-        ...xs,
+        ...sx,
       }}
     >
        {title}

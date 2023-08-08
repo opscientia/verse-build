@@ -16,7 +16,6 @@ export default function SliderCard() {
 
   const handleMouseLeave = () => {
     setIsShow(true);
-    console.log('hie');
   };
 
   return (
